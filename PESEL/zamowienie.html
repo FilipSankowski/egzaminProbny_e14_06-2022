@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styl10.css">
+  <title>Fabryka Cukierków</title>
+</head>
+<body>
+  
+  <div class="upper">
+    <a id="zamowienie" href="./zamowienie.html">Zamów cukierki</a>
+  </div>
+
+  <div class="upper">
+    <a href="./index.html">
+      <img src="./logotyp.png" alt="Nasze logo">
+    </a>
+  </div>
+
+  <div class="banner">
+    <h1>Strefa zamówień</h1>
+  </div>
+
+  <div class="main">
+    Numer kształtu: <br/>
+    <input type="number" id="shape"> <br/>
+    skomponuj swój kolor, podaj RGB: <br/>
+    R: <input type="number" id="r"> G: <input type="number" id="g"> B: <input type="number" id="b"> <br/>
+    <button onclick="processOrder()">Zamówienie</button> <br/>
+    <p id="order">Twoje zamówienie</p>
+    <button id="orderColor">Kolor</button>
+  </div>
+
+  <div class="main">
+    <h2>Nasza oferta</h2>
+    <table>
+      <tr>
+        <td>Kształty</td>
+        <td rowspan="2">Możesz zamówić <br/>dowolny kolor cukierka</td>
+      </tr>
+      <tr>
+        <td>
+          <ol>
+            <li>cytryna</li>
+            <li>liść</li>
+            <li>banan</li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    Autor strony: <span style="font-weight: bold;">PESEL</span>
+  </div>
+
+  <script>
+    function processOrder() {
+      const shape = document.getElementById('shape').value;
+      const r = document.getElementById('r').value;
+      const g = document.getElementById('g').value;
+      const b = document.getElementById('b').value;
+
+      switch (shape) {
+        case '1': {
+          document.getElementById('order').innerHTML = 'Twoje zamówienie to cukierek cytryna';
+          break;
+        }
+        case '2': {
+          document.getElementById('order').innerHTML = 'Twoje zamówienie to cukierek liść';
+          break;
+        }
+        case '3': {
+          document.getElementById('order').innerHTML = 'Twoje zamówienie to cukierek banan';
+          break;
+        }
+        default: {
+          document.getElementById('order').innerHTML = 'Twoje zamówienie to cukierek inny';
+          break;
+        }
+      }
+
+      document.getElementById('orderColor').style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }
+  </script>
+</body>
+</html>
